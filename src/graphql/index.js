@@ -1,16 +1,17 @@
 const { ApolloServer } = require('apollo-server-express');
 const { ApolloServerPluginLandingPageGraphQLPlayground } = require('apollo-server-core');
-const { Query } = require('pg');
 
 const typeDefs = `
   type Query {
     hello: String
+    getPerson(name: String, age: Int): String
   }
 `;
 
 const resolvers = {
   Query: {
-    hello: () => 'Hola Mundo'
+    hello: () => 'Hola Mundo',
+    getPerson: (_, args) => `Hello my name is ${args.name}, I'm ${args.age} years old.`
   }
 }
 
