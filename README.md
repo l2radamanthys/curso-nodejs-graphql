@@ -32,3 +32,20 @@ psql -h localhost -d my_store -U nico
 SELECT * FROM users;
 DELETE FROM users WHERE id=<id>;
 ```
+
+# Iniciar Postgres
+
+    docker-compose up -d postgres
+
+## Consultar contenedores corriendo
+
+    docker-compose ps
+
+## Apagar contenedores
+
+    docker-compose down
+
+
+# Connect DB Local
+
+    dropdb --if-exists my_store -e; createdb my_store
