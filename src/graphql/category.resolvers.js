@@ -17,5 +17,9 @@ const getCategory = (_, { id }) => {
   return service.findOne(id);
 }
 
+const getCategories = () => {
+  return service.find({});
+}
 
-module.exports = { addCategory, getCategory };
+
+module.exports = { addCategory, getCategory, getCategories };
