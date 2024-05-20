@@ -6,9 +6,8 @@ const getProduct = (_, { id }) => {
   return service.findOne(id);
 }
 
-const getProducts = async (_, args) => {
-  const products = await service.find({});
-  return products;
+const getProducts = () => {
+  return service.find({});
 }
 
 const addProduct = (_, { dto }) => {
@@ -24,10 +23,16 @@ const deleteProduct = async (_, { id }) => {
   return id;
 }
 
+const getProductsByCategory = (parent) => {
+  const id = parent.dataValues.id;
+  return service.getByCategory(id);
+}
+
 module.exports = {
   getProduct,
   getProducts,
   addProduct,
   updateProduct,
-  deleteProduct
+  deleteProduct,
+  getProductsByCategory,
 };

@@ -1,6 +1,7 @@
 const CategoryService = require('./../services/category.service');
 const checkJwtGql = require('./../utils/checkJwtGql');
 const checkRolesGql  = require('./../utils/checkRolesGql');
+
 const service = new CategoryService();
 
 const addCategory = async (_, { dto }, context) => {
@@ -12,4 +13,9 @@ const addCategory = async (_, { dto }, context) => {
   });
 }
 
-module.exports = { addCategory };
+const getCategory = (_, { id }) => {
+  return service.findOne(id);
+}
+
+
+module.exports = { addCategory, getCategory };
