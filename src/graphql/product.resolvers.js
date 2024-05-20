@@ -13,8 +13,9 @@ const getProducts = async (_, args) => {
 }
 
 
-const addProduct = (_, args) => {
-  return null;
+const addProduct = async (_, { dto }) => {
+  const newProduct = await service.create(dto);
+  return newProduct;
 }
 
 module.exports = { getProduct, getProducts, addProduct };
